@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="70" height="50" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tiletesting" tilewidth="16" tileheight="16">
+  <image source="tiletesting.png" width="128" height="32"/>
+  <tile id="1">
+   <properties>
+    <property name="passable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="wall"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="type" value="wall"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="passable" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="map_exit" value="buildingtestmap.tmx"/>
+    <property name="type" value="teleporter"/>
+    <property name="x_exit" value="9"/>
+    <property name="y_exit" value="3"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="17" name="indoor_object_tiles" tilewidth="16" tileheight="16">
+  <image source="indoor_object_tiles.png" width="64" height="16"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="70" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3WsQqAMAxF0QylOPj/3ysFhyChjoI5B97e3ikjIsbLOlr/npt17nJuposumS41XWq61HSp6VJ73nC5R+e7Llt33HFvfvwWAAAAAAAAAAAAAPijC8QXEPawNgAA
+  </data>
+ </layer>
+ <objectgroup name="teleporters" width="70" height="50">
+  <object name="teleport" type="teleporters" x="66" y="170" width="28" height="6">
+   <properties>
+    <property name="exit_map" value="buildingtestmap"/>
+    <property name="exit_x" value="9"/>
+    <property name="exit_y" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="objects" width="70" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OwQkAMAgAMVeo7r9ru4IPkUIC978I6MlXbU/wtbM9AAAAAAAAAAAAAAAAwIgLe4XybrA2AAA=
+  </data>
+ </layer>
+ <layer name="objectup" width="70" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OMQEAAAgDoIWwf1Yz7NIDEpBAb64DAAAAAAAAAAAAAAAAwDsLR/P3/7A2AAA=
+  </data>
+ </layer>
+</map>

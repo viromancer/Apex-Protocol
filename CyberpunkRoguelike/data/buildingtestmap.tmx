@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="15" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tiletesting" tilewidth="16" tileheight="16">
+  <image source="tiletesting.png" width="128" height="32"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="30" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+NiYGDgGqSYaRjZyz1AmHOAMP8AYYEBwgMVzqNgFIwCygEAD+UGKwgHAAA=
+  </data>
+ </layer>
+ <objectgroup name="teleporters" width="30" height="15">
+  <object name="playerbase" type="teleporters" x="144" y="23" width="15" height="13">
+   <properties>
+    <property name="exit_map" value="gametestmap"/>
+    <property name="exit_x" value="4"/>
+    <property name="exit_y" value="9"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
