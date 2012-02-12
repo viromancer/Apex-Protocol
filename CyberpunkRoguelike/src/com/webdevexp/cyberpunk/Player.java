@@ -37,7 +37,10 @@ public class Player extends Character{
 	@Override
 	public void update(GameContainer container, int delta) {
 		// TODO Auto-generated method stub
-		_input.update(container, this);
+		for(int i = 0; i<delta; i++){
+			_input.update(container, this);
+		}
+		
 	}
 
 	

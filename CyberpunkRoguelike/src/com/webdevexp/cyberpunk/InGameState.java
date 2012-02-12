@@ -22,6 +22,7 @@ public class InGameState extends World{
 	TiledMap map;
 	protected int mapWidth;
 	protected int mapHeight;
+	public Camera gameCamera;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException
@@ -45,7 +46,10 @@ public class InGameState extends World{
 		this.setHeight(map.getHeight() * 16);
 		
 		add(player);
-		setCamera(new Camera(this,player,container.getWidth(),container.getHeight(),320,240,new Vector2f(0.5f,0.5f)));
+		
+		gameCamera = new Camera(this,player,container.getWidth()/2,container.getHeight()/2,container.getWidth()-100,container.getHeight()-100,player.speed);
+		
+		setCamera(gameCamera);
 	}
 	
 	@Override
@@ -57,6 +61,8 @@ public class InGameState extends World{
 			this.clear();
 			currentLevel = Level.load(GlobalData.currentLevel, this);
 			add(player);
+			gameCamera.cameraX = Math.max(0, player.x - container.getWidth()/2);
+			gameCamera.cameraY = Math.max(0,player.y - container.getHeight()/2);
 			player.shouldTeleport = false;
 		}
 	}

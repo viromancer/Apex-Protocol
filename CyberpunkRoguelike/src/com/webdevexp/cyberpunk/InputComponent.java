@@ -21,26 +21,29 @@ public class InputComponent {
 		if (container.getInput().isKeyDown(Input.KEY_LEFT)) {
 			if(player.collide(Entity.SOLID, player.x-_SPEED, player.y)==null){
 				player.x-=_SPEED;
-				player.direction = Direction.LEFT;
+				
 			}
+			player.direction = Direction.LEFT;
 		}
 		if (container.getInput().isKeyDown(Input.KEY_RIGHT)) {
 			if(player.collide(Entity.SOLID, player.x+_SPEED, player.y)==null){
 				player.x+=_SPEED;
-				player.direction = Direction.RIGHT;
 			}
+			player.direction = Direction.RIGHT;
 		}
 		if (container.getInput().isKeyDown(Input.KEY_UP)) {
 			if(player.collide(Entity.SOLID, player.x, player.y-_SPEED)==null){
 				player.y-=_SPEED;
-				player.direction = Direction.UP;
+				
 			}
+			player.direction = Direction.UP;
 		}
 		if (container.getInput().isKeyDown(Input.KEY_DOWN)) {
 			if(player.collide(Entity.SOLID, player.x, player.y+_SPEED)==null){
 				player.y+=_SPEED;
-				player.direction = Direction.DOWN;
+				
 			}
+			player.direction = Direction.DOWN;
 		}
 		
 		//check for teleporter collision
