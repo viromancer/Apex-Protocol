@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="200" height="200" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tiletesting" tilewidth="16" tileheight="16">
+  <image source="tiletesting.png" width="128" height="32"/>
+  <tile id="3">
+   <properties>
+    <property name="type" value="wall"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="200" height="200">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3bMQ6DMAxA0SCQWLj/eRFbVWFkQ6uW8IY34okPSRBTa21KGpKy8yoz4Re2e3RJqPYxJ+iDf6cPiF3pYzyYqQ96kO1jKc7UBz2wvoKYPiCmD4hd/Vaxt0d/v24uzgTgnqJzWwAA6jL79KPzLGszevaN8164s9dnvj4gpg+Ine3DvoMn+OT7QzP0xvoKYv4dBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGDPCgQt3qQAcQIA
+  </data>
+ </layer>
+</map>

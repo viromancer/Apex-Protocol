@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="matrix_tiles" tilewidth="16" tileheight="16">
+  <image source="matrix_tiles.png" width="64" height="16"/>
+  <tile id="2">
+   <properties>
+    <property name="type" value="wall"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3TQQ8AEAiG4Zr//59dnIxN+Sjq8B71mKkQUVHELc3ZnSK53GVhou3ZfGkWptRON120izZX7FPmyD5tecvqnT38q4j7m+7/LtKWmJr7oOZL7Btmb980X3YrHWwtOxAOAAA=
+  </data>
+ </layer>
+</map>
