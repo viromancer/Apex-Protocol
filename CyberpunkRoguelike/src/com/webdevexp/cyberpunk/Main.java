@@ -10,7 +10,7 @@ public class Main {
 	 */
 	public static void main(String[] argv) throws SlickException {
 		AppGameContainer container = 
-			new AppGameContainer(new Game("Cyberpunk Roguelike"), 640, 480, false);
+			new AppGameContainer(new Game("Cyberpunk Roguelike"), 1280, 960, false);
 		container.start();
 	}
 

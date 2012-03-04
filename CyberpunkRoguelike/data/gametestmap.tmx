@@ -57,7 +57,7 @@
  <objectgroup name="teleporters" width="70" height="50">
   <object name="teleport" type="teleporters" x="66" y="170" width="28" height="6">
    <properties>
-    <property name="exit_map" value="buildingtestmap"/>
+    <property name="exit_map" value="missionSelect"/>
     <property name="exit_x" value="9"/>
     <property name="exit_y" value="2"/>
    </properties>

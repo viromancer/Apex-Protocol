@@ -11,18 +11,21 @@ public class AnimationComponent {
 	
 	private SpriteSheet sheet;
 	private final int _left = 0, _right = 1, _up = 2, _down = 3; 
+	private int framesBuilt = 0;
 	private Character character;
 	
 	public AnimationComponent(String sheetFile, int tileWidth, int tileHeight, Character theCharacter){
 		try {
-			sheet = new SpriteSheet(sheetFile,16,16);
+			sheet = new SpriteSheet(sheetFile,tileWidth,tileHeight);
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		character = theCharacter;
 		
-		character.direction = Direction.LEFT;
+		int framesToBuild = sheet.getVerticalCount() * sheet.getHorizontalCount();
+		
+		character.direction = Direction.DOWN;
 		character.walkAnimation[_left] = new Animation();
 		character.walkAnimation[_left].setAutoUpdate(true);
 		character.walkAnimation[_right] = new Animation();
@@ -35,16 +38,28 @@ public class AnimationComponent {
 		
 		
 		for (int frame=0;frame<2;frame++) {
-			character.walkAnimation[_down].addFrame(sheet.getSprite(frame,0), 200);
+			if(framesBuilt < framesToBuild){
+				character.walkAnimation[_down].addFrame(sheet.getSprite(frame,0), 200);
+				framesBuilt++;
+			}
 		}
 		for (int frame=0;frame<2;frame++) {
-			character.walkAnimation[_right].addFrame(sheet.getSprite(frame,1), 200);
+			if(framesBuilt < framesToBuild){
+				character.walkAnimation[_right].addFrame(sheet.getSprite(frame,1), 200);
+				framesBuilt++;
+			}
 		}
 		for (int frame=0;frame<2;frame++) {
-			character.walkAnimation[_left].addFrame(sheet.getSprite(frame,2), 200);
+			if(framesBuilt < framesToBuild){
+				character.walkAnimation[_left].addFrame(sheet.getSprite(frame,2), 200);
+				framesBuilt++;
+			}
 		}
 		for (int frame=0;frame<2;frame++) {
-			character.walkAnimation[_up].addFrame(sheet.getSprite(frame,3), 200);
+			if(framesBuilt < framesToBuild){
+				character.walkAnimation[_up].addFrame(sheet.getSprite(frame,3), 200);
+				framesBuilt++;
+			}
 		}
 	}
 	

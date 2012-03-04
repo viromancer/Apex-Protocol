@@ -1,22 +1,19 @@
 package com.webdevexp.cyberpunk;
 
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Vector2f;
-import org.newdawn.slick.tiled.TiledMap;
 
 
 public class Player extends Character{
 	//declare constants for readability in animations
 	
-	private final float _SPEED = .1f;
 	private InputComponent _input;
 	private AnimationComponent _anim;
 	public boolean shouldTeleport = false;
+	public boolean matrixTeleport = false;
+	public boolean inMatrix =false;
+	public boolean createBullet = false;
 	
 	public Player(float x, float y){
 		super(x,y);

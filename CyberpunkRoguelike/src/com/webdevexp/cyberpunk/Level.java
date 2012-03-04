@@ -1,27 +1,35 @@
 package com.webdevexp.cyberpunk;
 
 import it.marteEngine.World;
+import it.marteEngine.entity.Entity;
 
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 
-public class Level {
+public class Level extends Entity{
 	
-	public Level(){}
+	public Level(float x, float y) {
+		super(x, y);
+		// TODO Auto-generated constructor stub
+	}
+
+	public TiledMap map;
 	
 	
-	public static Level load(String mapToLoad, World world) throws SlickException{
+	
+	public void load(String mapToLoad, World world) throws SlickException{
 		Image tileImage;
 		int tileId;
 		String tileType;
-		Level loadedLevel;
-		TiledMap map;
 		
-		
-		loadedLevel = new Level();
 		map = new TiledMap("data/"+mapToLoad+".tmx");
+		if(!GlobalData.player.inMatrix)
+			GlobalData.currentLevelName = mapToLoad;
+		GlobalData.matrixLevelName = GlobalData.MatrixMap.get(mapToLoad);
 		
 		for(int i=0; i<map.getLayerCount();i++){
 			
@@ -31,6 +39,7 @@ public class Level {
 					tileId = map.getTileId(x, y, i);
 					tileType = map.getTileProperty(tileId, "type", "floor");
 					if (tileImage != null){
+						if(tileType.equals("wall"))
 							world.add(new Tile(tileImage,x*16,y*16,tileType));
 					}
 				}
@@ -50,7 +59,11 @@ public class Level {
 			}
 		}
 		
-		return loadedLevel;
+	}
+	
+	@Override
+	public void render(GameContainer container, Graphics g){
+		map.render((int)x, (int)y);
 	}
 
 }

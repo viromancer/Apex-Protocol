@@ -33,7 +33,7 @@ public class Teleporter extends Entity{
 	public void collisionResponse(Entity other){
 		other.x = exitX*16;
 		other.y = exitY*16;
-		GlobalData.currentLevel = exitMap;
+		GlobalData.currentLevelName = exitMap;
 		
 	}
 	

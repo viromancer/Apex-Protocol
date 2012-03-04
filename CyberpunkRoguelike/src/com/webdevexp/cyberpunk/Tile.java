@@ -19,12 +19,18 @@ public class Tile extends Entity{
 			setHitBox(0,0,16,16);
 			addType(SOLID);
 		}
+//		else{
+//			collidable = false;
+//		}
+//		active = false;
 	}
 	
 	@Override
 	public void render(GameContainer container, Graphics g) {
 		// TODO Auto-generated method stub
-		g.drawImage(tileImage, x, y);
+//		if(InGameState.gameCamera.contains(this)){
+//			g.drawImage(tileImage, x, y);
+//		}
 	}
 
 	@Override
