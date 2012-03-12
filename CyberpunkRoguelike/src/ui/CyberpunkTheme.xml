@@ -11,9 +11,6 @@
     <images file="simple.png">
         <area name="-borderG" xywh="60,0,9,9" splitx="L3,R3" splity="T3,B3"/>
     </images>
-    <images file="HUDBackground.png">
-        <area name="background-image" xywh="*"/>
-    </images>
     <images file="cursor.png">
         <alias name="cursor.default" ref="none"/>
         <cursor name="cursor" hotSpotX="0" hotSpotY="0" xywh="0,0,16,16"/>
@@ -65,7 +62,6 @@
             <param name="border"><border>10,0</border></param>
             <param name="font"><font>button.font</font></param>
         </theme>
-        <param name="background"><image>background-image</image></param>
         <param name="cursor"><image>cursor.default</image></param>
         <param name="mouseCursor"><cursor>cursor</cursor></param>
     </theme>
