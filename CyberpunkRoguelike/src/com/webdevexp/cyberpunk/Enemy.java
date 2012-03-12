@@ -10,9 +10,9 @@ import org.newdawn.slick.geom.Vector2f;
 
 public class Enemy extends Character{
 	private AnimationComponent _anim;
-	private final float _SPEED = .4f;
-	public String name;
+	private final float _SPEED = .05f;
 	int totalHP, totalMP, currentHP, currentMP, EXP;
+	public Light light;
 	
 	public Enemy(float x, float y)
 	{
@@ -22,7 +22,7 @@ public class Enemy extends Character{
 	
 	public Enemy(String enemyName, int totalEnemyHP, int totalEnemyMP, int worthEXP, float x, float y){
 		super(x,y);
-		
+		name = enemyName;
 		totalHP = totalEnemyHP;
 		totalMP = totalEnemyMP;
 		currentHP = totalHP;
@@ -41,6 +41,7 @@ public class Enemy extends Character{
 	public void collisionResponse(Entity other){
 		if(other.isType("BULLET")){
 			currentHP--;
+			this.world.add(new ScrollingCombatText(x,y, "-1","DAMAGE"));
 		}
 	}
 
@@ -48,31 +49,35 @@ public class Enemy extends Character{
 	public void render(GameContainer container, Graphics g) {
 		// TODO Auto-generated method stub
 		_anim.render(g);
+		if(currentHP <= 0){
+			this.world.add(new ScrollingCombatText(GlobalData.player.x,GlobalData.player.y, "+"+EXP+" exp"));
+		}
 	}
 
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
 		//super.update(container,  delta);
 		// TODO Auto-generated method stub
+		for(int i = 0; i<delta; i++){
+			if(currentHP <= 0){
+				GlobalData.lightMap.removeLight(light);
+				this.destroy();
+			}
+			else{
+				if(this.x < GlobalData.player.x && collide(Entity.SOLID, x+_SPEED, y)==null && collide(Entity.PLAYER, x+_SPEED, y)==null){
+					this.x+=_SPEED;
+				}
+				if(this.x > GlobalData.player.x && collide(Entity.SOLID, x-_SPEED, y)==null && collide(Entity.PLAYER, x-_SPEED, y)==null){
+					this.x-=_SPEED;
+				}
+				if(this.y < GlobalData.player.y && collide(Entity.SOLID, x, y+_SPEED)==null && collide(Entity.PLAYER, x, y+_SPEED)==null){
+					this.y+=_SPEED;
+				}
+				if(this.y > GlobalData.player.y && collide(Entity.SOLID, x, y-_SPEED)==null && collide(Entity.PLAYER, x, y-_SPEED)==null){
+					this.y-=_SPEED;
+				}
+			}
 		
-		if(currentHP <= 0){
-			this.destroy();
 		}
-		else{
-			if(this.x < GlobalData.player.x && collide(Entity.SOLID, x+_SPEED, y)==null && collide(Entity.PLAYER, x+_SPEED, y)==null){
-				this.x+=_SPEED;
-			}
-			if(this.x > GlobalData.player.x && collide(Entity.SOLID, x-_SPEED, y)==null && collide(Entity.PLAYER, x-_SPEED, y)==null){
-				this.x-=_SPEED;
-			}
-			if(this.y < GlobalData.player.y && collide(Entity.SOLID, x, y+_SPEED)==null && collide(Entity.PLAYER, x, y+_SPEED)==null){
-				this.y+=_SPEED;
-			}
-			if(this.y > GlobalData.player.y && collide(Entity.SOLID, x, y-_SPEED)==null && collide(Entity.PLAYER, x, y-_SPEED)==null){
-				this.y-=_SPEED;
-			}
-		}
-		
-		
 	}
 }

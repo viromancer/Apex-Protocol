@@ -9,6 +9,10 @@ import org.newdawn.slick.state.StateBasedGame;
 import TWLSlick.TWLStateBasedGame;
 
 public class Game extends TWLStateBasedGame{
+	public final static int WIDTH = 1280;
+	public final static int HEIGHT = 960;
+	public final static int scale = 3;
+	public final static int tilesize = 16;
 	
 	public Game(String title) {
 		super(title);

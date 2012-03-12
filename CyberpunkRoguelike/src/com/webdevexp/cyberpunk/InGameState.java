@@ -1,6 +1,7 @@
 package com.webdevexp.cyberpunk;
 
 import it.marteEngine.Camera;
+import it.marteEngine.ME;
 import it.marteEngine.World;
 
 import org.newdawn.slick.Color;
@@ -28,7 +29,8 @@ public class InGameState extends World{
 	protected int mapHeight;
 	public static Camera gameCamera;
 	GameContainer gameContainer;
-	Image HUDBackground;
+	
+	//Image HUDBackground;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException
@@ -41,6 +43,7 @@ public class InGameState extends World{
 	public void enter(GameContainer container, StateBasedGame game) throws SlickException{
 		super.enter(container, game);
 		
+		Light light = new Light(mapHeight, mapHeight, mapHeight, null);
 		clear();
 		
 		GlobalData.player.x = 48;
@@ -52,13 +55,13 @@ public class InGameState extends World{
 //		map = new TiledMap("data/gametestmap.tmx");
 //		this.setWidth(map.getWidth()* 16);
 //		this.setHeight(map.getHeight() * 16);
-		
+		Enemy testEnemy = new Enemy("test",4,0,100,144,144);
 		add(GlobalData.currentLevel);
 		add(GlobalData.player);
 		add(GlobalData.bulletFactory);
-		add(new Enemy("test",4,0,0,144,144));
+		add(testEnemy);
 		
-		gameCamera = new Camera(this,GlobalData.player,container.getWidth()/3,container.getHeight()/3-50,container.getWidth(),container.getHeight()+50,GlobalData.player.speed);
+		gameCamera = new Camera(this,GlobalData.player,container.getWidth()/3,container.getHeight()/3,container.getWidth(),container.getHeight(),GlobalData.player.speed);
 		
 		
 		setCamera(gameCamera);
@@ -77,6 +80,7 @@ public class InGameState extends World{
 				game.enterState(0);
 			}
 			else{
+				add(GlobalData.currentLevel);
 				add(GlobalData.player);
 				gameCamera.cameraX = Math.max(0, GlobalData.player.x - container.getWidth()/2);
 				gameCamera.cameraY = Math.max(0,GlobalData.player.y - container.getHeight()/2);
@@ -91,6 +95,7 @@ public class InGameState extends World{
 				
 				this.clear();
 				GlobalData.currentLevel.load(GlobalData.matrixLevelName, this);
+				add(GlobalData.currentLevel);
 				add(GlobalData.player);
 				
 				GlobalData.player.matrixTeleport = false;				
@@ -103,7 +108,7 @@ public class InGameState extends World{
 				
 				add(GlobalData.currentLevel);
 				add(GlobalData.player);
-				add(GlobalData.bulletFactory);
+				//add(GlobalData.bulletFactory);
 				
 				GlobalData.player.matrixTeleport = false;
 				
@@ -121,9 +126,9 @@ public class InGameState extends World{
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		g.scale(3, 3);
+		g.scale(Game.scale, Game.scale);
 		g.setBackground(Color.black);
-		HUDBackground.draw(0,0);
+		//HUDBackground.draw(0,0);
 		super.render(container, game, g);
 		//Level.map.render(0,0,(int)gameCamera.cameraX, (int)gameCamera.cameraY, 1280/16, 960/16);
 	}
@@ -139,15 +144,15 @@ public class InGameState extends World{
 		Button skillBtn3;
 		Button skillBtn4;
 		
-		try {
-			HUDBackground = new Image("data/HUDBackground.png");
-		} catch (SlickException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			HUDBackground = new Image("data/HUDBackground.png");
+//		} catch (SlickException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		skillBtn1 = new Button("  1");
-		skillBtn1.setPosition(220, gameContainer.getScreenHeight()-77);
+		skillBtn1.setPosition(500, gameContainer.getScreenHeight()-77);
 		skillBtn1.setTheme("simplebutton");
 
 		skillBtn1.setInnerSize(20, 35);
@@ -158,7 +163,7 @@ public class InGameState extends World{
         });
 		
 		skillBtn2 = new Button("  2");
-		skillBtn2.setPosition(260, gameContainer.getScreenHeight()-77);
+		skillBtn2.setPosition(540, gameContainer.getScreenHeight()-77);
 		skillBtn2.setTheme("simplebutton");
 
 		skillBtn2.setInnerSize(20, 35);
@@ -169,7 +174,7 @@ public class InGameState extends World{
         });
 		
 		skillBtn3 = new Button("  3");
-		skillBtn3.setPosition(300, gameContainer.getScreenHeight()-77);
+		skillBtn3.setPosition(580, gameContainer.getScreenHeight()-77);
 		skillBtn3.setTheme("simplebutton");
 
 		skillBtn3.setInnerSize(20, 35);
@@ -180,7 +185,7 @@ public class InGameState extends World{
         });
 		
 		skillBtn4 = new Button("  4");
-		skillBtn4.setPosition(340, gameContainer.getScreenHeight()-77);
+		skillBtn4.setPosition(620, gameContainer.getScreenHeight()-77);
 		skillBtn4.setTheme("simplebutton");
 
 		skillBtn4.setInnerSize(20, 35);

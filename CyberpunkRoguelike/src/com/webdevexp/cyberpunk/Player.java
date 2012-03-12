@@ -20,10 +20,11 @@ public class Player extends Character{
 		setHitBox(2, 6, 12, 10);
 		speed = new Vector2f(8.0f,3.0f);
 		addType(PLAYER);
-		
+		name = "player";
 		_input = new InputComponent();
 		_anim = new AnimationComponent("data/hero2.png",16,16,this);
 	}
+	
 	
 	@Override
 	public void render(GameContainer container, Graphics g) {
@@ -39,6 +40,5 @@ public class Player extends Character{
 		}
 		
 	}
-
 	
 }
