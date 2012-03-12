@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="200" height="200" tilewidth="16" tileheight="16">
+<map version="1.0" orientation="orthogonal" width="40" height="30" tilewidth="16" tileheight="16">
  <tileset firstgid="1" name="tiletesting" tilewidth="16" tileheight="16">
-  <image source="tiletesting.png" width="128" height="32"/>
+  <image source="tiletesting.png" width="128" height="48"/>
   <tile id="3">
    <properties>
     <property name="type" value="wall"/>
    </properties>
   </tile>
+  <tile id="16">
+   <properties>
+    <property name="intensity" value="30"/>
+    <property name="type" value="light"/>
+   </properties>
+  </tile>
  </tileset>
- <layer name="Tile Layer 1" width="200" height="200">
+ <layer name="Tile Layer 1" width="40" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3bMQ6DMAxA0SCQWLj/eRFbVWFkQ6uW8IY34okPSRBTa21KGpKy8yoz4Re2e3RJqPYxJ+iDf6cPiF3pYzyYqQ96kO1jKc7UBz2wvoKYPiCmD4hd/Vaxt0d/v24uzgTgnqJzWwAA6jL79KPzLGszevaN8164s9dnvj4gpg+Ine3DvoMn+OT7QzP0xvoKYv4dBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGDPCgQt3qQAcQIA
+   H4sIAAAAAAAAC+2XSw6AIAxEIbr0/ud1SwiFdvoj6KIbo/F1Zmi1llIqUDdYyLtQvkdYP983+a7N+TRF9ebFZ6VllH7ojKLmW8tiMf96HTJmKeKTFR8nT6udQ+XFM8ft8zMGlM+yVmeKuo54jOiK8EXuI9TfEV/0LjpNP23uRvdl6SfJwuycZvvbMnr+L3D3cGTP3BxlebILH3fPW/FlffNb6iftITt/K14Nn4efu+l3Ap9k5nM8fQFHEdt+wBIAAA==
+  </data>
+ </layer>
+ <layer name="Lights" width="40" height="30" opacity="0.58">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVPbQ0PoAAAAADg1wAW4j6/wBIAAA==
+  </data>
+ </layer>
+ <layer name="Spawner" width="40" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVPbQ0PoAAAAADg1wAW4j6/wBIAAA==
   </data>
  </layer>
 </map>
